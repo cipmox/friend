@@ -1,22 +1,17 @@
-<div id="<%= dom_id friend %>">
-  <p>
-    <strong>First name:</strong>
-    <%= friend.first_name %>
-  </p>
-
-  <p>
-    <strong>Last name:</strong>
-    <%= friend.last_name %>
-  </p>
-
-  <p>
-    <strong>Email:</strong>
+<tr id="<%= dom_id friend %>">
+  <td style="width: 80px;">
+    <%= image_tag(friend.image, style: 'width: 100%', class: 'rounded-circle') %>
+  </td>
+  <td class="align-middle">
+    <%= link_to friend.first_name + ' ' + friend.last_name , friend %>
+  </td>
+  <td class="align-middle">
     <%= friend.email %>
-  </p>
-
-  <p>
-    <strong>Phone:</strong>
+  </td>
+  <td class="align-middle">
     <%= friend.phone %>
-  </p>
-
-</div>
+  </td>
+  <td class="align-middle">
+    <%= button_to 'Delete', friend, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
+  </td>
+</tr>
