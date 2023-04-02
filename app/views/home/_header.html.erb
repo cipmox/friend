@@ -33,6 +33,10 @@
     </ul>
     <div class="form-inline my-2 my-lg-0">
       <% if user_signed_in? %>
+      <% if current_user.image.attached? %>
+        <%= image_tag(current_user.image, style: "height: 50px; width: 50px;", class: 'rounded-circle') %>
+        &nbsp;&nbsp;
+      <% end %>
       <span class="navbar-text">
         Logged in as, <strong><%= current_user.email %> </strong>
       </span>
