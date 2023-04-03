@@ -5,7 +5,11 @@
   <%= render "devise/shared/error_messages", resource: resource %>
   <div class="row">
     <div class="col-sm-4 text-center">
-      <%= image_tag(resource.image, style: 'height: 400px;', class: 'img-thumbnail') %>
+      <% if resource.image.attached? %>
+        <%= image_tag(resource.image, style: 'height: 400px;', class: 'img-thumbnail', id: "preview_id") %>
+      <% else %>  
+        <%= image_tag("https://conferenceoeh.com/wp-content/uploads/profile-pic-dummy.png", style: 'height: 400px;', class: 'img-thumbnail', id: "preview_id") %>
+      <% end %>
     </div>
     <div class="col-sm-8">
   <div class="field form-group">
@@ -29,7 +33,7 @@
   </div>
 
   <div class="field form-group">
-    <%= f.file_field :image, class: "form-control", placeholder: "Profile image" %>
+    <%= f.file_field :image, class: "form-control", placeholder: "Profile image", id: "image_upload_id", onchange: "previewImage(event);" %>
   </div>
 
   <div class="field form-group">

@@ -1,3 +1,4 @@
+
 const previewImage = (event) => {
     /**
      * Get the selected files.
