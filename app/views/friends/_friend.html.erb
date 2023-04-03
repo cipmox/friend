@@ -1,6 +1,10 @@
 <tr id="<%= dom_id friend %>">
   <td style="width: 80px;">
-    <%= image_tag(friend.image, style: 'width: 100%', class: 'rounded-circle') %>
+    <% if friend.image.attached? %>
+      <%= image_tag(friend.image, style: 'width: 100%', class: 'rounded-circle') %>
+    <% else %>
+      <%= image_tag("https://conferenceoeh.com/wp-content/uploads/profile-pic-dummy.png", style: 'width: 100%', class: 'rounded-circle') %>
+    <% end %>
   </td>
   <td class="align-middle">
     <%= link_to friend.first_name + ' ' + friend.last_name , friend %>
